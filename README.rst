@@ -58,9 +58,9 @@ The `adsbcot` command-line program has several runtime arguments::
                             CoT Destination Port
       -B, --broadcast       UDP Broadcast CoT?
       -I INTERVAL, --interval INTERVAL
-                            URL Polling Interval
+                            URL Polling Interval, in seconds
       -S STALE, --stale STALE
-                            CoT Stale period, in hours
+                            CoT Stale period, in seconds
       -D DUMP1090_URL, --dump1090_url DUMP1090_URL
                             Dump1090 URL
       -U ADSBX_URL, --adsbx_url ADSBX_URL
