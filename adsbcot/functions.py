@@ -117,7 +117,7 @@ def hello_event():
     event.uid = name
     event.time = time
     event.start = time
-    event.stale = time + datetime.timedelta(hours=1)
+    event.stale = time + datetime.timedelta(seconds=1)
     event.how = 'h-g-i-g-o'
     event.point = point
     event.detail = detail
