@@ -36,7 +36,7 @@ Option A) Install from the Python Package Index::
 
 Option B) Install from this source tree::
 
-    $ git checkout https://github.com/ampledata/adsbcot.git
+    $ git clone https://github.com/ampledata/adsbcot.git
     $ cd adsbcot/
     $ python setup.py install
 
@@ -77,6 +77,23 @@ At a minimum, you'll need to specify:
     A. -D DUMP1090_URL, where DUMP1090_URL is the URL to a system running the dump1090 ADS-B decoder.
     B. -U ADSBX_URL & -X ADSBX_API_KEY, where ADSBX_URL is the URL to a ADS-B Exchange feed you'd like to use, and ADSBX_API_KEY is your ADS-B Exchange API Key.
 
+
+Running as a Daemon
+===================
+
+First, install supervisor::
+
+    $ sudo yum install supervisor
+    $ sudo service supervisord start
+
+Create /etc/supervisor.d/adsbcot.ini with the following content::
+
+    [program:adsbcot]
+    command=adsbcot -U https://adsbexchange.com/api/aircraft/v2/lat/36.7783/lon/-119.4179/dist/400/ -X xxx -I 5 -C 127.0.0.1 -P 8087
+
+And update supervisor::
+
+    $ sudo supervisorctl update
 
 Build Status
 ============
